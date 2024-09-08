@@ -25,7 +25,7 @@ router.post('/generate', async (req, res) => {
         const { subject } = req.body;
         const pdfTitle = req.body.title;
 
-        const dbpdf = await Pdf.findOne({ title: pdfTitle });
+        const dbpdf = await Pdf.findOne({ title: pdfTitle, subject });
 
         if (!dbpdf) {
             return res.status(404).json({
@@ -42,15 +42,16 @@ router.post('/generate', async (req, res) => {
         // Parse the PDF and extract text
         pdfParse(dataBuffer).then(data => {
             let text = data.text.replace(/\n/g, ' ');
+            res.json(text)
+
         }).catch(error => {
             console.error('Error extracting PDF content:', error);
         });
 
-        text = req.body.text + "generate 5 mcq from given text with correct answer only json in object form";
+        // text = req.body.text + "generate 5 mcq from given text with correct answer only json in object form";
 
-        let data = await run(text);
-        const mcq = JSON.parse(data);
-        res.json(mcq)
+        // let data = await run(text);
+        // const mcq = JSON.parse(data);
 
     } catch (error) {
         console.error(error);

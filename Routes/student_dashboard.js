@@ -101,4 +101,30 @@ router.post("/get-subject-detail", async (req, res) => {
         });
     }
 });
+
+router.get("/get-all-subject", async (req, res) => {
+    try {
+        const data = await Pdf.find();
+
+        if (!data) {
+            return res.status(404).json({
+                success: "false",
+                message: "PDF not found in database"
+            });
+        }
+
+        return res.status(200).json({
+            data ,
+            message: "PDF added successfully",
+            success: true,
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            success: "false",
+            message: "Server error"
+        });
+    }
+});
 module.exports = router;
