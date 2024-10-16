@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
     student_level : {
-        type : String
+        type : String,
+        required : true
     },
     chapter : {
         type : String,
@@ -14,24 +15,24 @@ const studentSchema = new mongoose.Schema({
         required : true
     },
     faculty_email : {
-        type : String,
-        required : true
+        type : String
+        // required : true
     },
     id : {
         type : String,
         required : true
     },
     total_video_time : {
-        type : String,
-        required : true
+        type : String
+        // required : true
     },
     seen_video_time : {
-        type : String,
-        required : true
+        type : String
+        // required : true
     },
     pdf_read_time : {
-        type : String,
-        required : true
+        type : String
+        // required : true
     }
 })
 
