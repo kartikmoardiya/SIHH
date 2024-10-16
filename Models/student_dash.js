@@ -33,6 +33,10 @@ const studentSchema = new mongoose.Schema({
     pdf_read_time : {
         type : String
         // required : true
+    },
+    video_link : {
+        type : String
+        // required : true
     }
 })
 
