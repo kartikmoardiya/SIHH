@@ -48,7 +48,7 @@ router.post('/generate', async (req, res) => {
             console.error('Error extracting PDF content:', error);
         });
 
-        // text = req.body.text + "generate 5 mcq from given text with correct answer only json in object form";
+        // text = req.body.text + "generate 20 mcq from given text with correct answer only json in object form";
 
         // let data = await run(text);
         // const mcq = JSON.parse(data);
